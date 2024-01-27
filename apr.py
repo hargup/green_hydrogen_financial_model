@@ -12,7 +12,7 @@ nested_dict = defaultdict(list)
 # nested_dict = defaultdict(lambda: defaultdict(list))
 
 # Open the file ans.txt and read it line by line
-with open('apr_2023.txt', 'r') as file:
+with open('all_text_data.txt', 'r') as file:
     # for line in file:
     last_date = ''
     for line_number, line in enumerate(file, start=1):
@@ -32,4 +32,11 @@ with open('apr_2023.txt', 'r') as file:
                         nested_dict[last_date].append(filtered_list)
         # print("data:", nested_dict[last_date])
 
-print(json.dumps(nested_dict, indent=4))
+# print(json.dumps(nested_dict, indent=4))
+print("Number of keys:", len(nested_dict))
+
+out_file = "data.json"
+
+# Write dictionary to file
+with open(out_file, "w") as file:
+    json.dump(nested_dict, file)
