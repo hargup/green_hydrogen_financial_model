@@ -2,7 +2,7 @@ import re
 from collections import defaultdict
 import json
 
-line_regex = r"^(\d{2}:\d{2}).*(\d{2}:\d{2}).*?\d{4}"
+line_regex = r"^(\d{2}:\d{2}).*(\d{2}:\d{2}).*?\d+"
 date_regex = r"^\d{2}-\d{2}-\d{4}"
 hour_regex = r"^\d{1,2}$"
 
