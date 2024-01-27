@@ -23,8 +23,8 @@ with open('all_text_data.txt', 'r') as file:
                     if idx == 2:
                         date = match.group()
                         last_date = date
-                        nested_dict[date].append([])
-                        print(f"Last Date: {last_date}")
+                        # nested_dict[date].append([])
+                        # print(f"Last Date: {last_date}")
                     if idx == 3:
                         value = match.group()
                         [from_min, to_min, price] = [item for item in value.split(' ') if item != '-']
