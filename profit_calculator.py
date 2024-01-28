@@ -18,6 +18,7 @@ CAPEX = 1000000  # Rupees per kg per hour
 WATER_USAGE = 12.5  # liters per kg
 SELLING_PRICE = 300  # Rupees per kg
 DISTILLED_WATER_RATE = 8
+SUBSIDY_PER_KG = 30
 
 # Keep capacity constant at 1 kg per hour
 CAPACITY = 1
@@ -34,7 +35,7 @@ for i, threshold in enumerate(thresholds):
     input_cost = (ELECTRICITY_RATE * ELECTROLYZER_EFFICIENCY) + (WATER_USAGE * DISTILLED_WATER_RATE)
 
     # Profit per kg calculation
-    profit_per_kg = SELLING_PRICE - input_cost
+    profit_per_kg = SELLING_PRICE - input_cost + SUBSIDY_PER_KG
 
     # Profit per hour calculation
     profit_per_hour = profit_per_kg * CAPACITY
@@ -62,5 +63,5 @@ for result in results:
     result["IRR"] = float(result["IRR"])
 
 # Save the corrected results to a JSON file
-with open('./profit_calculator_results.json', 'w') as f:
+with open('./profit_calculator_results_with_subsidy.json', 'w') as f:
     json.dump(results, f)
